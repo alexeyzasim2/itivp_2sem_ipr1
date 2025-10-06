@@ -1,0 +1,17 @@
+*.log
+logs/
+
+*.tmp
+*.temp
+*.swp
+
+.vscode/
+.idea/
+*.sublime-*
+
+vendor/
+composer.lock
+
+cache/
+tmp/
+

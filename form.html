@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Опрос удовлетворенности</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="styles.css?v=3" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <div class="form-header">
+                <h1>Опрос удовлетворенности</h1>
+                <p>Помогите нам улучшить качество наших услуг</p>
+            </div>
+            
+            <form action="process.php" method="POST" id="satisfactionForm">
+                <div class="form-group">
+                    <label for="respondent_name" class="form-label">
+                        <i class="fas fa-user"></i>
+                        Ваше имя <span class="required">*</span>
+                    </label>
+                    <input type="text" 
+                           class="form-control" 
+                           id="respondent_name" 
+                           name="respondent_name" 
+                           placeholder="Введите ваше имя"
+                           required
+                           maxlength="255">
+                    <div class="form-text">Обязательное поле для заполнения</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="service_rating" class="form-label">
+                        <i class="fas fa-star"></i>
+                        Оцените качество нашего сервиса <span class="required">*</span>
+                    </label>
+                    <div class="rating-container">
+                        <div class="rating-scale">
+                            <div class="rating-option">
+                                <input type="radio" id="rating1" name="service_rating" value="1" required>
+                                <label for="rating1">1</label>
+                            </div>
+                            <div class="rating-option">
+                                <input type="radio" id="rating2" name="service_rating" value="2" required>
+                                <label for="rating2">2</label>
+                            </div>
+                            <div class="rating-option">
+                                <input type="radio" id="rating3" name="service_rating" value="3" required>
+                                <label for="rating3">3</label>
+                            </div>
+                            <div class="rating-option">
+                                <input type="radio" id="rating4" name="service_rating" value="4" required>
+                                <label for="rating4">4</label>
+                            </div>
+                            <div class="rating-option">
+                                <input type="radio" id="rating5" name="service_rating" value="5" required>
+                                <label for="rating5">5</label>
+                            </div>
+                        </div>
+                        <small class="text-muted">1 - очень плохо, 5 - отлично</small>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="recommendation_likelihood" class="form-label">
+                        <i class="fas fa-thumbs-up"></i>
+                        Насколько вероятно, что вы порекомендуете нас друзьям? <span class="required">*</span>
+                    </label>
+                    <div class="rating-container">
+                        <div class="rating-scale">
+                            <div class="rating-option">
+                                <input type="radio" id="rec1" name="recommendation_likelihood" value="1" required>
+                                <label for="rec1">1</label>
+                            </div>
+                            <div class="rating-option">
+                                <input type="radio" id="rec2" name="recommendation_likelihood" value="2" required>
+                                <label for="rec2">2</label>
+                            </div>
+                            <div class="rating-option">
+                                <input type="radio" id="rec3" name="recommendation_likelihood" value="3" required>
+                                <label for="rec3">3</label>
+                            </div>
+                            <div class="rating-option">
+                                <input type="radio" id="rec4" name="recommendation_likelihood" value="4" required>
+                                <label for="rec4">4</label>
+                            </div>
+                            <div class="rating-option">
+                                <input type="radio" id="rec5" name="recommendation_likelihood" value="5" required>
+                                <label for="rec5">5</label>
+                            </div>
+                            <div class="rating-option">
+                                <input type="radio" id="rec6" name="recommendation_likelihood" value="6" required>
+                                <label for="rec6">6</label>
+                            </div>
+                            <div class="rating-option">
+                                <input type="radio" id="rec7" name="recommendation_likelihood" value="7" required>
+                                <label for="rec7">7</label>
+                            </div>
+                            <div class="rating-option">
+                                <input type="radio" id="rec8" name="recommendation_likelihood" value="8" required>
+                                <label for="rec8">8</label>
+                            </div>
+                            <div class="rating-option">
+                                <input type="radio" id="rec9" name="recommendation_likelihood" value="9" required>
+                                <label for="rec9">9</label>
+                            </div>
+                            <div class="rating-option">
+                                <input type="radio" id="rec10" name="recommendation_likelihood" value="10" required>
+                                <label for="rec10">10</label>
+                            </div>
+                        </div>
+                        <small class="text-muted">1 - точно не порекомендую, 10 - обязательно порекомендую</small>
+                    </div>
+                </div>
+                
+            
+                <div class="form-group">
+                    <label for="suggestions" class="form-label">
+                        <i class="fas fa-comment"></i>
+                        Ваши предложения и комментарии
+                    </label>
+                    <textarea class="form-control" 
+                               id="suggestions" 
+                              name="suggestions" 
+                              rows="4" 
+                              placeholder="Поделитесь своими мыслями о том, как мы можем улучшить наш сервис..."
+                              maxlength="1000"></textarea>
+                    <div class="form-text">Максимум 1000 символов</div>
+                </div>
+                
+                <button type="submit" class="btn btn-submit">
+                    <i class="fas fa-paper-plane"></i> Отправить отзыв
+                </button>
+            </form>
+            
+            <div class="footer">
+                <p>Спасибо за ваше время! Ваше мнение очень важно для нас.</p>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('satisfactionForm').addEventListener('submit', function(e) {
+                const name = document.getElementById('respondent_name').value.trim();
+                const serviceRating = document.querySelector('input[name="service_rating"]:checked');
+                const recommendationRating = document.querySelector('input[name="recommendation_likelihood"]:checked');
+                
+                let hasErrors = false;
+
+                if (!name) {
+                    hasErrors = true;
+                }
+                
+                if (!serviceRating) {
+                    hasErrors = true;
+                }
+                
+                if (!recommendationRating) {
+                    hasErrors = true;
+                }
+
+                if (hasErrors) {
+                    e.preventDefault();
+                    alert('Пожалуйста, заполните все обязательные поля');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

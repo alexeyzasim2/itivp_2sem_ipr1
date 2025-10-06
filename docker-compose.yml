@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: satisfaction_survey_mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password_2025
+      MYSQL_DATABASE: user_form_db_zasim
+      MYSQL_USER: survey_user
+      MYSQL_PASSWORD: survey_password_2025
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./init_database.sql:/docker-entrypoint-initdb.d/init_database.sql
+    networks:
+      - survey_network
+    command: --default-authentication-plugin=mysql_native_password
+
+  web:
+    build: .
+    container_name: satisfaction_survey_web
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    depends_on:
+      - mysql
+    volumes:
+      - ./:/var/www/html
+    networks:
+      - survey_network
+    environment:
+      - DB_HOST=mysql
+      - DB_USERNAME=survey_user
+      - DB_PASSWORD=survey_password_2025
+      - DB_NAME=user_form_db_zasim
+
+volumes:
+  mysql_data:
+
+networks:
+  survey_network:
+    driver: bridge
